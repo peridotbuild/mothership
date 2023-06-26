@@ -1,0 +1,50 @@
+{% extends "layout.jinja" %}
+
+{% block content %}
+<div class="pv2-reverse-content">
+    <div className="flex h-full w-full">
+        <div class="h-full fixed w-64 bg-green-50 border-r border-black border-opacity-10 px-4 py-2 text-sm">
+            <div class="flex flex-col space-y-4">
+                <p>
+                    {{ entry.entry.package_name }}-{{ entry.entry.package_version }}-{{ entry.entry.package_release
+                    }}.src.rpm
+                </p>
+                <div class="flex justify-between">
+                    <p class="font-bold">Name:</p>
+                    <p>
+                        {{ entry.entry.package_name }}
+                    </p>
+                </div>
+                <div class="flex justify-between">
+                    <p class="font-bold">Package version:</p>
+                    <p>
+                        {{ entry.entry.package_version }}
+                    </p>
+                </div>
+                <div class="flex justify-between">
+                    <p class="font-bold">Package release:</p>
+                    <p>
+                        {{ entry.entry.package_release }}
+                    </p>
+                </div>
+                <div class="flex justify-between">
+                    <p class="font-bold">Package epoch:</p>
+                    <p>
+                        {{ entry.entry.package_epoch }}
+                    </p>
+                </div>
+                <div class="flex justify-between">
+                    <p class="text-xs">
+                        {{ entry.entry.os_release }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="h-full w-full pl-64">
+            <div class="p-4">
+                <pre>{{ rekor_entry }}</pre>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

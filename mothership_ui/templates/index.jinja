@@ -1,0 +1,22 @@
+{% extends "layout.jinja" %}
+
+{% block content %}
+<div class="border-b bg-white text-blue-600 flex py-2 px-4 font-bold text-sm">
+    <span class="w-2/6">Supply Chain Entry ID</span>
+    <span class="w-1/6">Package name</span>
+    <span class="w-1/6">Package version</span>
+    <span class="w-1/6">Package release</span>
+    <span class="w-1/6">OS Release</span>
+</div>
+{% for entry in entries %}
+<div class="text-sm py-2 px-4 border-b bg-white">
+    <div class="flex justify-between">
+        <span class="w-2/6 truncate text-xs"><a href="/{{ entry.entry_uuid }}">{{ entry.entry_uuid }}</a></span>
+        <span class="w-1/6 truncate">{{ entry.package_name }}</span>
+        <span class="w-1/6 truncate">{{ entry.package_version }}</span>
+        <span class="w-1/6 truncate">{{ entry.package_release }}</span>
+        <span class="w-1/6 truncate">{{ entry.os_release }}</span>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
